@@ -5,7 +5,7 @@
 -behavior(supervisor).
 
 % API
--export([start_link/0]).
+-export([start_link/2]).
 
 % Callbacks
 -export([init/1]).
