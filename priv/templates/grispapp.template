@@ -6,7 +6,12 @@
     {otp_version, "20.2", "Target GRiSP Erlang/OTP version"}
 ]}.
 {template, "app.erl", "{{name}}/src/{{name}}.erl"}.
+{template, "pinger.erl", "{{name}}/src/{{name}}_pinger.erl"}.
+{template, "generic_computation.erl", "{{name}}/src/{{name}}_generic_computation.erl"}.
 {template, "sup.erl", "{{name}}/src/{{name}}_sup.erl"}.
+{template, "worker_sup.erl", "{{name}}/src/{{name}}_worker_sup.erl"}.
+{template, "serv.erl", "{{name}}/src/{{name}}_serv.erl"}.
+{template, "master_sup.erl", "{{name}}/src/master_sup.erl"}.
 {template, "otp_app.app.src", "{{name}}/src/{{name}}.app.src"}.
 {template, "rebar.config", "{{name}}/rebar.config"}.
 {template, "gitignore", "{{name}}/.gitignore"}.
