@@ -1,8 +1,15 @@
-% @doc {{name}} top level supervisor.
+% @doc {{name}} child level supervisor.
 % @end
 -module({{name}}_sup).
 
 -behavior(supervisor).
+
+% API
+-export([start_link/0]).
+
+% Callbacks
+-export([init/1]).
+
 
 %--- API -----------------------------------------------------------------------
 
