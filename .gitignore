@@ -16,3 +16,7 @@ logs
 _build
 .idea
 rebar3.crashdump
+
+\.editorconfig
+
+rebar3_grisp\.iml
