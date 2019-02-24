@@ -19,6 +19,7 @@
 %%% API functions
 %%%===================================================================
 
+
 %%--------------------------------------------------------------------
 %% @doc
 %% Starts the supervisor
@@ -72,12 +73,12 @@ server_specs() ->
     Restart = permanent ,
     Shutdown = 5000 ,
     Type = worker ,
-    #{id => server
-        , start    => {server , start_link , []}
+    #{id => {{name}}_server
+        , start    => {{{name}}_server , start_link , []}
         , restart  => Restart
         , shutdown => Shutdown
         , type     => Type
-        , modules  => [server]
+        , modules  => [{{name}}_server]
     }.
 
 

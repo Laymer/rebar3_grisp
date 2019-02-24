@@ -9,14 +9,15 @@
 
 %% API
 -export([start_link/0]).
+-export([start_stress/1]).
 
 %% gen_server callbacks
--export([init/1 ,
-         handle_call/3 ,
-         handle_cast/2 ,
-         handle_info/2 ,
-         terminate/2 ,
-         code_change/3]).
+-export([init/1]).
+-export([handle_call/3]).
+-export([handle_cast/2]).
+-export([handle_info/2]).
+-export([terminate/2]).
+-export([code_change/3])]).
 
 -define(SERVER , ?MODULE).
 
@@ -25,6 +26,17 @@
 %%%===================================================================
 %%% API
 %%%===================================================================
+
+%%--------------------------------------------------------------------
+%% @doc
+%% Starts the memory stress procedure
+%%
+%% @end
+%%--------------------------------------------------------------------
+-spec(start_stress({Module :: atom(), Func :: function(), Args :: list()}) ->
+    {ok , Pid :: pid()} | ignore | {error , Reason :: term()}).
+start_stress({M,F,A}) ->
+    gen_server:call({local , ?SERVER} , ?MODULE , {memory_stress_procedure, {M,F,A}}).
 
 %%--------------------------------------------------------------------
 %% @doc
@@ -73,6 +85,8 @@ init([]) ->
                      {noreply , NewState :: #state{} , timeout() | hibernate} |
                      {stop , Reason :: term() , Reply :: term() , NewState :: #state{}} |
                      {stop , Reason :: term() , NewState :: #state{}}).
+handle_call({memory_stress_procedure, {M,F,A}} , _From , State) ->
+    {reply , ok , State};
 handle_call(_Request , _From , State) ->
     {reply , ok , State}.
 
