@@ -1,8 +1,15 @@
 {application, {{name}}, [
     {description, "{{desc}}"},
     {vsn, "0.1.0"},
-    {registered, []},
-    {mod, {{{name}}, []}},
+    {registered, [
+{{name}}
+{{name}}_app
+{{name}}_sup
+{{name}}_sup
+{{name}}_server
+{{name}}_worker_sup
+    ]},
+    {mod, {{{name}}_app, []}},
     {applications, [
         kernel,
         stdlib,
